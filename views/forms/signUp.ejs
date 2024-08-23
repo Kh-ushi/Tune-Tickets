@@ -1,0 +1,82 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+    <h1 style="margin-left: 33rem !important; margin-top: 2rem !important;">SignUp on Tune Tickets</h1>
+    <div class="row mt-3">
+        <div class="col-6 offset-3" style="margin-left: 25rem !important;">
+            <form action="/signup" method="POST" class="needs-validation" novalidate>
+
+                <div class="mb-3 ml-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="info[username]" id="username" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        This Field is Required
+                    </div>
+
+                </div>
+
+                <div class="mb-3 ml-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="info[email]" id="email" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        This Field is Required
+                    </div>
+
+                </div>
+
+                <div class="mb-3 ml-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" name="info[age]" id="age" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        This Field is Required
+                    </div>
+
+                </div>
+                  
+                <div class="mb-3 ml-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        This Field is Required
+                    </div>
+
+                </div>
+
+
+                <button class="btn btn-success">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    
+    <script>(() => {
+        'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+      
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+      
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()</script>
+
+</body>

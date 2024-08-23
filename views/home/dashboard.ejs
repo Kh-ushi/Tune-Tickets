@@ -1,0 +1,33 @@
+<%layout("/layouts/boilerplate")%>
+
+<body>
+    <div class="container-table">
+        <h1>Event Dashboard</h1>
+        <%if(!events || events.length<=0){%>
+            <h1>Oops! You have not bought any tickets Yet</h1>
+            <a href="">Find Events</a>
+        <%}else{%>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Tickets Booked</th>
+                        <th>Book More</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% events.forEach(event => { %>
+                        <tr class="tr-height">
+                            <td><%= event.event.name %></td>
+                            <td><%= event.ticketsBooked %></td>
+                            <td>
+                                <a href="/event/<%= event.event._id %>/book"><button>Book More</button></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+         <%}%>       
+    </div>
+</body>
+

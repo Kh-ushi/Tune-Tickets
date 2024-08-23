@@ -1,0 +1,135 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+   <div class="event-bg">
+     <img src="<%=result.imageUrl%>" alt="">
+   </div>
+
+   <div class="event-info">
+     
+    <div class="video-sec">
+        <h2>See How its gonna Be</h2>
+        <div class="video-sec-child">
+            <iframe src="<%=result.video%>" frameborder="0"></iframe>
+        </div>
+
+    </div>
+    <div class="button-sec">
+       <div class="button-child">
+        <h2><%=result.name%></h2><br>
+       <h3>Address</h3>
+        <p><%=result.venue.name%>&nbsp;,&nbsp;<%=result.venue.address%></p>
+        <p><%=result.venue.city%>&nbsp;,&nbsp;<%=result.venue.state%>&nbsp;,&nbsp;<%=result.venue.zipCode%></p>
+        <p><%=result.venue.country%></p>
+         <div class="nav-book-btn">
+          <button class="navigate">Navigate</button>
+         <a href="/event/<%=result._id%>/book%>"> <button class="ticket">Book Ticket</button></a>
+         </div>
+       </div>
+
+    </div>
+
+
+   </div>
+
+   <div class="artists-info">
+    <h2>Artists Performing</h2>
+      <div class="artists">
+            <%for(art of result.artists){%>
+                <div class="artists-card">
+                  <a href="https://www.google.com/search?q=<%=art.name%>">
+                  <img src="<%=art.imageUrl%>" alt="#">
+                  <h3><%=art.name%></h3>
+                  </a>
+                </div>
+            <%}%>
+      </div>
+   </div>
+
+
+
+   <div class="navigate-popup">
+        <div class="navigate-map" id="map">
+          <div class="nav-close-cross"><i class="fa-regular fa-circle-xmark"></i></div>
+
+        </div>
+   </div>
+   
+
+   <script>
+  
+const openPopup = document.querySelector('.navigate');
+const closePopup = document.querySelector('.nav-close-cross');
+const popupBox = document.querySelector('.navigate-popup');
+
+
+openPopup.addEventListener('click', () => {
+    popupBox.style.display = 'flex';
+});
+
+closePopup.addEventListener('click', () => {
+    popupBox.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === popupBox) {
+        popupBox.style.display = 'none';
+    }
+});
+
+
+   
+const venue1 = `<%- JSON.stringify(result.venue) %>`;
+console.log('JSON Object:', venue1);
+
+let venue;
+try {
+    venue = JSON.parse(venue1);
+    console.log('Parsed Venue:', venue);
+
+   
+    let res = `${venue.address}, ${venue.city}, ${venue.state} ${venue.zipCode}, ${venue.country}`;
+    console.log('Formatted Address:', res);
+
+   
+    const apiKey = '1xJ6IVx9atOE6lskE65d'; 
+
+    fetch(`https://api.maptiler.com/geocoding/${encodeURIComponent(res)}.json?key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.features && data.features.length > 0) {
+                const coordinates = data.features[0].center;
+                console.log('Coordinates:', coordinates);
+
+                const map = new maplibregl.Map({
+                    container: 'map', 
+                    style: `https://api.maptiler.com/maps/streets/style.json?key=${apiKey}`, 
+                    center: coordinates, 
+                    zoom: 12, 
+                    maplibreLogo: true 
+                });
+
+              
+                const marker = new maplibregl.Marker()
+                    .setLngLat(coordinates)
+                    .addTo(map);
+
+                
+                const popup = new maplibregl.Popup({ offset: 25 })
+                    .setText(res) 
+                    .setLngLat(coordinates) 
+                    .addTo(map);
+
+                marker.setPopup(popup);
+
+            } else {
+                console.error('No results found');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+} catch (error) {
+    console.error('Error parsing JSON:', error);
+}
+
+   </script>
+    
+</body>

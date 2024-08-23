@@ -1,0 +1,54 @@
+<%layout("/layouts/boilerplate")%>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream</title>
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.18.1/video-js.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        #stream-container { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <% if(tevents && tevents.length == 0) { %>
+        <h1>Oops!! No Events Today</h1>
+    <% } else { %>
+        <% for(let e of tevents) { %>
+            <ul>
+                <a href="/live/<%=e._id%>"> 
+                <li>
+                    <div class="event-today">
+                        <div class="event-img">
+                           <img src="<%=e.imageUrl%>" alt="#">
+                        </div>
+                         <div class="event-info">
+                            <h5><%=e.description%></h5>
+                         </div>
+                    </div>
+                </li>
+            </a>
+            </ul>
+        <% } %>    
+    <% } %>
+    
+
+
+
+<!-- <div id="stream-container">
+    <iframe src="https://player.twitch.tv/?channel=guptakhushi&parent=localhost" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            scrolling="no" 
+            height="378" 
+            width="620">
+    </iframe>
+</div> -->
+
+<script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+</body>
+</html>

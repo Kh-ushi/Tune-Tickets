@@ -1,0 +1,25 @@
+<%layout("/layouts/boilerplate")%>
+<body >
+    <div class="event-bg">
+        <img src="<%=result.imageUrl%>" alt="">
+      </div>
+
+      <div class="event-info">
+        <!-- <h2 class="genre-hd"><%=result.name%></h2> -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              
+                <%for(event of result.events){%>
+                    <div class="swiper-slide, event-card"><a href="/event/<%=event._id%>"><img src="<%=event.imageUrl%>" alt=""></a></div>
+                 <%}%>   
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+
+
+
+
+      </div>
+   
+</body>

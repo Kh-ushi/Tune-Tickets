@@ -1,0 +1,545 @@
+*{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body{
+    background-color: #a8a79a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.navbar{
+    margin:0 auto !important;
+    margin-top: 2rem !important;
+    width: 80vw;
+    height: 10vh;
+    background-color: black !important;
+    color:  white !important;
+    border-radius: 1rem !important;
+}
+
+a{
+    color: white !important;
+}
+.dropdown-menu{
+    background-color: black;
+}
+
+.navbar-brand{
+    margin-left: 1rem !important;
+}
+.navbar-nav{
+    width: 100%;
+    display: flex !important;
+    justify-content: space-around;
+    margin-right: 1rem !important;
+}
+
+.first-cont{
+    margin:0 auto !important;
+    margin-top: 2rem !important;
+    width: 80vw;
+    height: 62vh;
+    background-color: #c2c1b6;
+    border-radius: 1rem;
+    border: 2px solid  rgb(204, 201, 201);
+    display: flex;
+    
+}
+.cross-line-background {
+    background:
+        repeating-linear-gradient(0deg, rgb(164, 163, 163), #c2c1b6 1px, transparent 1px, transparent 30px),
+        repeating-linear-gradient(90deg,  rgb(164, 163, 163), #c2c1b6 1px, transparent 1px, transparent 50px);
+}
+
+.slogan{
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    margin-top: 2rem !important;
+}
+
+.slogan h1{
+    font-size: 60px;
+    font-family: "Neucha", cursive;
+    font-weight: 600;
+    font-style: normal;
+      
+    margin-top: 1rem !important;
+      
+}
+
+.arrow i{
+    font-size:80px;
+}
+.ticket svg {
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin-left: 10rem !important;
+}
+
+.pics{
+    height: 100%;
+    width: 50%;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.pics-child{
+    width: 84%;
+    height: 84%;
+    margin: auto !important;
+    margin-top: 4rem !important;
+    border-radius: 1rem;
+}
+
+
+
+/* IMAGE SLIDER */
+
+.slide-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.2);
+}
+.slide-container .slides{
+  width: 100%;
+  height: calc(100% - 40px);
+  position: relative;
+  overflow: hidden;
+}
+.slide-container .slides img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.slide-container .slides img:not(.active){
+  top: 0;
+  left: -100%;
+}
+span.next, span.prev{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 14px;
+  color: #eee;
+  font-size: 24px;
+  font-weight: bold;
+  transition: 0.5s;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+}
+span.next{
+  right: 20px;
+}
+span.prev{
+  left: 20px;
+}
+span.next:hover, span.prev:hover{
+  background-color: #ede6d6;
+  opacity: 0.8;
+  color: #222;
+} 
+.dotsContainer{
+  position: absolute;
+  bottom: 5px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dotsContainer .dot{
+  width: 15px;
+  height: 15px;
+  margin: 0px 2px;
+  border: 3px solid #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+.dotsContainer .active{
+  background-color: #555;
+}
+
+@keyframes next1{
+  from{
+    left: 0%
+  }
+  to{
+    left: -100%;
+  }
+}
+@keyframes next2{
+  from{
+    left: 100%
+  }
+  to{
+    left: 0%;
+  }
+}
+
+@keyframes prev1{
+  from{
+    left: 0%
+  }
+  to{
+    left: 100%;
+  }
+}
+@keyframes prev2{
+  from{
+    left: -100%
+  }
+  to{
+    left: 0%;
+  }
+}
+
+
+
+
+/* **** */
+
+.upcoming-hd{
+  margin-top: 3rem !important;
+  margin-left: 9rem !important;
+  font-size: 50px;
+  font-family: "Neucha", cursive;
+  font-weight: 600;
+  font-style: normal;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.card-upc{
+  height: 350px !important;
+  width: 350px !important;
+  padding: 0.5rem !important;
+  background-color: #cbcbc4;
+}
+
+.card-upc img{
+  width: 100%;
+  height: 90%;
+}
+.card-upc .h2{
+  height: 10%;
+}
+
+
+.card-slider{
+  position: relative;
+  height:40%;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.swiper {
+  width: 80%;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.swiper-slide a{
+  display: block;
+  width: 300px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0002,#0004);
+
+}
+
+.event-bg{
+  width: 100%;
+  border: 2px solid black;
+  height: 60vh;
+  position: absolute;
+  top:0;
+  opacity: 0.4;
+}
+
+.event-bg img{
+  height: 100%;
+  width: 100%;
+}
+
+.navbar{
+  z-index: 1 !important;
+}
+
+.event-info{
+  border: 2px solid black;
+  width: 80%;
+  height: 47vh;
+  position: relative;
+  margin: auto !important;
+  top:16rem;
+  border-radius: 1rem;
+  background-color: black;
+  display: flex;
+  box-shadow: 10px 10px 25px black;
+}
+
+
+.video-sec{
+  height: 100%;
+  width: 60%;
+  padding: 1rem !important;
+}
+
+.video-sec h2{
+  font-size: 45px;
+    font-family: "Neucha", cursive;
+    font-weight: 600;
+    font-style: normal;
+    color: white;  
+
+}
+
+.video-sec-child{
+  height:80%;
+  width: 100%;
+  position: relative;
+  top: 1rem;
+}
+
+.video-sec-child iframe{
+  height: 100%;
+  width: 100%;
+}
+
+
+.button-sec{
+  width: 40%;
+}
+
+.button-child{
+  color: white;
+  font-family: "Neucha", cursive;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 5.5rem !important;
+}
+
+.button-child h2{
+  font-size: 50px;
+}
+
+.button-child h3{
+  font-size: 35px;
+}
+
+.button-child button{
+  height: 3rem;
+  width: 30%;
+  border-radius: 2rem;
+  margin-left: 2re;
+  font-size: 1.5rem;
+}
+
+.artists-info{
+  height: 20vw;
+  width: 100%;
+  margin-bottom: 2rem !important;
+  margin-top: 18rem !important;
+  font-family: "Neucha", cursive;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.artists-info h2{
+  margin-left: 2rem !important;
+ font-size: 40px; 
+ color: white;
+}
+
+
+.artists{
+  width: 100%;
+  height: 85%;
+  display: flex;
+  margin-top: 1rem !important;
+}
+
+.artists-card{
+  height: 100%;
+  width: 20%;
+  margin-left: 1rem !important;
+  background-color: rgba(29, 28, 28, 0.6);
+  padding: 1rem !important;
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 5px 5px 10px black;
+}
+
+.artists-card:hover{
+  box-shadow: 10px 10px 20px black;
+}
+
+.artists-card img{
+  width: 100%;
+  height: 87%;
+  border-radius: 1rem;
+}
+
+.nav-book-btn{
+  width: 100%;
+  display: flex;
+}
+
+.nav-book-btn a{
+  width: 100%;
+  display: flex;
+}
+
+
+
+.nav-book-btn .ticket{
+  margin-left: 2rem !important;
+}
+
+
+.event-card{
+  height: 100%;
+  width: 30%;
+  margin-left: 1.5rem !important;
+  box-shadow: 3px 3px 8px rgb(118, 117, 117);
+}
+
+.event-card a {
+  height: 100%;
+  width: 100%;
+}
+
+.event-card a img{
+  height: 100%;
+  width: 100%;
+}
+
+.container{
+   
+  margin: auto !important;
+  margin-top: 2rem !important;
+}
+
+
+.popup{
+  background-color: rgba(0,0,0,0.6);
+  width: 100vw !important;
+  height: 1200px !important;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  z-index: 1 !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: none;
+}
+
+
+.popup-content{
+  height: 350px;
+  width: 500px;
+  background: #fff;
+  position: relative;
+  bottom: 5rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.close-cross i{
+  font-size: 3rem !important;
+  position: absolute;
+  top: -23px;
+  right: -15px;
+  color: red;
+  cursor: pointer;
+}
+
+
+.container-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.container-table table th, .container-table table td {
+    padding: 12px !important;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.container-table table th {
+    background-color: #f4f4f4;
+}
+
+.tr-height{
+  height: 8rem !important;
+}
+
+#stream-container{
+  height: 80vh !important;
+  border: 2px solid black;
+  width: 90vw !important;
+  margin: auto !important;
+  margin-top: 2rem !important;
+}
+#stream-container iframe{
+  height: 100% !important;
+  width: 100% !important;
+}
+
+
+.navigate-popup{
+  background-color: rgba(0,0,0,0.6);
+  width: 100vw !important;
+  height: 1200px !important;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  z-index: 1 !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  
+  display: none;
+}
+
+.navigate-map{
+  height:70vh;
+  width: 60vw;
+  background: #fff;
+  position: relative;
+  bottom: 5rem;
+  /* left: 21rem;
+  top: 10rem; */
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.nav-close-cross{
+  font-size: 3rem !important;
+  position: absolute;
+  top: -36px;
+  right: -16px;
+  color: red;
+  cursor: pointer;
+}
+
+
