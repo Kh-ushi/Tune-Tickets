@@ -365,6 +365,12 @@ app.get("/live/:e_id",isLoggedIn,async(req,res)=>{
 
 })
 
+app.get("/allEvents",async(req,res)=>{
+
+let events=await Event.find({});
+res.render("home/allEvents.ejs",{events});
+});
+
 
 app.use((req, res) => {
   res.send("Page Not Found");

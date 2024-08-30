@@ -1,0 +1,22 @@
+<%layout("/layouts/boilerplate")%>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+    <%for(let event of events) {%>
+        <a href="/event/<%=event._id%>">
+        <div class="card col listing-card" style="width: 27rem; margin-left: 2rem !important;margin-bottom: 2rem !important; padding: 1rem !important; background-color:#072451; border: 2px solid #0f428e; color: white;">
+            <img src="<%=event.imageUrl%>" class="card-img-top" alt="listing_img " style="height: 20rem;">
+
+            <div class="card-img-overlay"></div>
+
+            <div class="card-body">
+              <p class="card-text">
+                <b><%=event.name%> </b><br>
+              </p>
+            </div>
+          </div>
+          </a>
+          <%}%>
+          
+</div>

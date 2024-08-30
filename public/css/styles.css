@@ -617,5 +617,12 @@ padding: 3rem !important;
   border-radius: 1rem;
 }
 
+.container-table table th {
+  background-color:#1010a0;
+}
 
-
+.book-more{
+  width: 7rem;
+  height: 3rem;
+  border-radius: 1rem;
+}
