@@ -11,8 +11,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         .highlight {
-            background-color: yellow !important;
-            border: 2px solid red !important;
+            background-color:#0056b3 !important;
         }
         .custom-button {
             display: block;
@@ -25,10 +24,12 @@
             text-align: center !important;
             cursor: pointer;
             z-index: 1;
+            margin: auto !important;
             margin-top: 5rem !important;
         }
         .custom-button:hover {
-            background-color: #0056b3;
+            background-color:greenyellow;
+            color: black;
         }
         .popup {
             display: none; /* Hide the popup by default */
@@ -47,8 +48,11 @@
             border-radius: 5px;
             text-align: center;
             position: relative;
-            left: 50rem;
+            left: 40rem;
             top: 30rem;
+            width: 700px !important;
+            height: 400px;
+
         }
         .close-cross {
             position: absolute;
@@ -73,14 +77,15 @@
     <div class="popup">
         <div class="popup-content">
             <div class="close-cross"><i class="fa-regular fa-circle-xmark"></i></div>
-            <h2>Available Tickets</h2>
-            <i class="fa-solid fa-ticket"></i>
+            <h2 style="text-align: center;">Available Tickets &nbsp; <i class="fa-solid fa-ticket"></i></h2>
+            <br>
+            <h3 style="text-align: center;">(<%=result.name%>)</h3>
             <br><br><br>
             <table style="border-collapse: collapse; width: 100%;">
                 <thead>
                     <tr>
                         <th style="border: 1px solid black; padding: 8px;">Type</th>
-                        <th style="border: 1px solid black; padding: 8px;">Avl</th>
+                        <th style="border: 1px solid black; padding: 8px;">Available</th>
                         <th style="border: 1px solid black; padding: 8px;">Price</th>
                     </tr>
                 </thead>
@@ -134,11 +139,7 @@
             let preDecidedDate = formattedDate; 
 
             $('#calendar').fullCalendar({
-                header: {
-                    left: 'list',
-                    center: 'title',
-                    right: 'prev, today, next'
-                },
+               
                 defaultDate: preDecidedDate, 
                 dayRender: function(date, cell) {
                     if (date.format() === preDecidedDate) {

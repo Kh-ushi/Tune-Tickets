@@ -1,25 +1,34 @@
 <%layout("/layouts/boilerplate")%>
 <body >
-    <div class="event-bg">
-        <img src="<%=result.imageUrl%>" alt="">
-      </div>
+  
+  
+  <div  class="upcoming-events">
+    <!-- PART-TWO OF HOME PAGE -->
+    <h2 class="upcoming-hd"><%=result.name%>.&nbsp;.&nbsp;.</h2>
+    
+    <div class="events-container swiper">
+        <div class="events-card-wrapper">
+            <ul class="events-card-list swiper-wrapper">
+                <% for(event of result.events){ %>
+                    <li class="events-card-item swiper-slide">
+                        <a href="/event/<%=event._id%>" class="events-card-link">
+                            <img src="<%= event.imageUrl %>" alt="events-image" class="events-image">
+                            <h3 style="color: black;" class="event-name"><%= event.name %></h3>
+                        </a>
+                    </li>
+                <% } %>    
+            </ul>
 
-      <div class="event-info">
-        <!-- <h2 class="genre-hd"><%=result.name%></h2> -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              
-                <%for(event of result.events){%>
-                    <div class="swiper-slide, event-card"><a href="/event/<%=event._id%>"><img src="<%=event.imageUrl%>" alt=""></a></div>
-                 <%}%>   
-            </div>
             <div class="swiper-pagination"></div>
-          </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    
 
 
+  
+</div>
 
-
-
-      </div>
    
 </body>

@@ -1,8 +1,12 @@
 <%layout("/layouts/boilerplate")%>
+<head><link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  /></head>
 
 <body>
     <!-- PART-ONE OF HOME PAGE -->
-    <div class="first-cont cross-line-background">
+    <!-- <div class="first-cont cross-line-background">
 
         <div class="slogan">
             <h1>INSTANT TICKETS</h1>
@@ -14,92 +18,115 @@
             </div>
             </div>
 
-    </div>
+    </div> -->
 
-   <div class="pics">
-       <div class="pics-child">
-        
-        <!-- Image slider -->
-        <div class="slide-container">
-	
-            <div class="slides">
-                <img src="https://www.crew4events.com/events/images/concerts-main.jpg" class="active">
-                <img src="https://images7.alphacoders.com/133/1339451.png" >
-                <img src="https://img.jakpost.net/c/2019/06/12/2019_06_12_74202_1560308728._large.jpg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyulcj6_iNDtwhXWtL1VpHiKoe_-1u7vGKCg&s">
-                <img src="https://www.noidadiary.in/wp-content/uploads/2022/07/Indian-Ocean.jpg">
+    <div class="intro">
+        <div class="intro-one">
+            <div class="info">
+                <p>All Fun Starts Here</p>
+                <h2>INSTANT TICKETS</h2>
+                <h2>ENDLESS MUSIC !!</h2>
+                <div class="info-two">
+                    <p>Safe,Secure,Reliable Ticket Booking</p>
+                    <p>Your Ticket to Live Entertainment</p>
+                </div>
             </div>
-        
-            <div class="buttons">
-                <span class="next">&#10095;</span>
-                <span class="prev">&#10094;</span>
-            </div>
-        
-            <div class="dotsContainer">
-                <div class="dot active" attr='0' onclick="switchImage(this)"></div>
-                <div class="dot" attr='1' onclick="switchImage(this)"></div>
-                <div class="dot" attr='2' onclick="switchImage(this)"></div>
-                <div class="dot" attr='3' onclick="switchImage(this)"></div>
-                <div class="dot" attr='4' onclick="switchImage(this)"></div>
-            </div>
-        
         </div>
-
-<!-- Image slider -->
-
-
-       </div>
-   </div>
-
+        <div class="intro-two">
+            <div class="intro-two-img">
+               <img src="https://image.lexica.art/full_webp/27f55082-8acc-4542-a7f8-4847b1773969" alt="#">
+            </div>
+        </div>
     </div>
 
+
+   <div  class="upcoming-events">
+        <!-- PART-TWO OF HOME PAGE -->
+        <h2 class="upcoming-hd">UPCOMING EVENTS .&nbsp;.&nbsp;.</h2>
+        
+        <div class="events-container swiper">
+            <div class="events-card-wrapper">
+                <ul class="events-card-list swiper-wrapper">
+                    <% for(e of ue){ %>
+                        <li class="events-card-item swiper-slide">
+                            <a href="/event/<%=e._id%>" class="events-card-link">
+                                <img src="<%= e.imageUrl %>" alt="events-image" class="events-image">
+                                <h3 style="color: black;" class="event-name"><%= e.name %></h3>
+                            </a>
+                        </li>
+                    <% } %>    
+                </ul>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        
+
+
+      
+   </div>
+  
+   <br><br>
+
+   <div  class="upcoming-events">
     <!-- PART-TWO OF HOME PAGE -->
-     <h2 class="upcoming-hd">UPCOMING EVENTS .&nbsp;.&nbsp;.</h2>
+    <h2 class="upcoming-hd">CHOOSE BY GENRE .&nbsp;.&nbsp;.</h2>
+    
+    <div class="events-container swiper">
+        <div class="events-card-wrapper">
+            <ul class="events-card-list swiper-wrapper">
+                <% for(e of category){ %>
+                    <li class="events-card-item swiper-slide">
+                        <a href="/category/<%=e._id%>" class="events-card-link">
+                            <img src="<%= e.imageUrl %>" alt="events-image" class="events-image">
+                            <h3 style="color: black;" class="event-name"><%= e.name %></h3>
+                        </a>
+                    </li>
+                <% } %>    
+            </ul>
 
-
-     <!-- Swiper -->
-   <div class="card-slider">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-
-          <%for(e of ue){%>
-          <div class="swiper-slide">
-            <a href="/event/<%=e._id%>">
-                <div class="card-upc">
-                    <img src="<%=e.imageUrl%>" alt="#">
-                   <div class="h2"><%=e.name%></div>
-                </div>
-               </a>
-          </div>
-          <%}%>
-              
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
-   </div>
+    </div>
+    
+</div>
 
+<br><br>
+ 
 
-   <h2 class="upcoming-hd">CHOOSE BY GENRE .&nbsp;.&nbsp;.</h2>
-   <!-- Swiper -->
-   <div class="card-slider">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+<script>
+    new Swiper('.events-card-wrapper', {
+    // Optional parameters
+    loop: true,
+    spaceBetween:20,
 
-          <%for(e of category){%>
-          <div class="swiper-slide">
-            <a href="/category/<%=e._id%>">
-                <div class="card-upc">
-                    <img src="<%=e.imageUrl%>" alt="#">
-                   <div class="h2"><%=e.name%></div>
-                </div>
-               </a>
-          </div>
-          <%}%>
-              
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-   </div>
-
-
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints:{
+        0:{
+            slidesPerView:1
+        },
+        768:{
+            slidesPerView:2
+        },
+        1024:{
+            slidesPerView:5
+        }
+    }
+  
+  });
+</script>
 </body>

@@ -32,7 +32,9 @@ const eventSchema = new Schema({
     updatedAt: { type: Date, default: Date.now },
     video:{type:String},
     category:{type:String ,required:true},
-    livelink:{type:String,required:true}
+    livelink:{type:String,required:true},
+    formattedDate:{type:String},
+    formattedTime:{type:String}
 });
 
 // Create and export the Event model

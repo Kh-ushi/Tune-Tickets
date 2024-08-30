@@ -1,0 +1,26 @@
+ <!-- <div class="event-info">
+     
+    <div class="video-sec">
+        <h2>See How its gonna Be</h2>
+        <div class="video-sec-child">
+            <iframe src="<%=result.video%>" frameborder="0"></iframe>
+        </div>
+
+    </div>
+    <div class="button-sec">
+       <div class="button-child">
+        <h2><%=result.name%></h2><br>
+       <h3>Address</h3>
+        <p><%=result.venue.name%>&nbsp;,&nbsp;<%=result.venue.address%></p>
+        <p><%=result.venue.city%>&nbsp;,&nbsp;<%=result.venue.state%>&nbsp;,&nbsp;<%=result.venue.zipCode%></p>
+        <p><%=result.venue.country%></p>
+         <div class="nav-book-btn">
+          <button class="navigate">Navigate</button>
+         <a href="/event/<%=result._id%>/book%>"> <button class="ticket">Book Ticket</button></a>
+         </div>
+       </div>
+
+    </div>
+
+
+   </div> -->

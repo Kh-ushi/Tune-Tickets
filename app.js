@@ -131,9 +131,18 @@ app.get("/", async (req, res) => {
   res.render("home/home.ejs", { ue, category });
 });
 
+
 app.get("/event/:id", async (req, res) => {
   let { id } = req.params;
   let result = await Event.findById(id).populate("artists");
+
+  if (result) {
+    const eventDate = new Date(result.date);
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    result.formattedDate = eventDate.toLocaleDateString('en-US', options);
+    result.formattedTime = result.time; // Assuming event.time is already in 'HH:mm' format
+  }
+
   res.render("home/event.ejs", { result });
 });
 
